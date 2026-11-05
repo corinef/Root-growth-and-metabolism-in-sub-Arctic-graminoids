@@ -1,0 +1,37 @@
+﻿Experiment ,Species,Treatment,Sample ID,Original growth sum,New growth sum
+Outdoors 2024,D. flexuosa,R+S freezing,D16,20.932968,0
+Outdoors 2024,D. flexuosa,R+S freezing,D17,20.825279,6.725569
+Outdoors 2024,D. flexuosa,R+S freezing,D18,14.421109,9.442073
+Outdoors 2024,D. flexuosa,R freezing,D10,11.808962,12.9638883
+Outdoors 2024,D. flexuosa,R freezing,D11,15.130906,9.834233
+Outdoors 2024,D. flexuosa,R freezing,D12,9.957245,0
+Outdoors 2024,D. flexuosa,Control,D4,33.395551,29.614089
+Outdoors 2024,D. flexuosa,Control,D5,4.9424763,25.884441
+Outdoors 2024,D. flexuosa,Control,D6,24.321323,39.21885
+Outdoors 2024,E. vaginatum,R+S freezing,E16,66.8743148,0
+Outdoors 2024,E. vaginatum,R+S freezing,E17,97.8196771,0
+Outdoors 2024,E. vaginatum,R+S freezing,E18,68.108802,0
+Outdoors 2024,E. vaginatum,R freezing,E10,66.9949297,107.1084417
+Outdoors 2024,E. vaginatum,R freezing,E11,35.7672265,61.1782842
+Outdoors 2024,E. vaginatum,R freezing,E12,77.3802375,89.127618
+Outdoors 2024,E. vaginatum,Control,E4,17.4874973,24.0497978
+Outdoors 2024,E. vaginatum,Control,E5,41.982713,21.4232195
+Outdoors 2024,E. vaginatum,Control,E6,50.85212,68.044886
+Outdoors 2025,D. flexuosa,R+S freezing,D25,26.460247,0
+Outdoors 2025,D. flexuosa,R+S freezing,D26,12.5513846,2.59456506
+Outdoors 2025,D. flexuosa,R+S freezing,D27,19.757471,0
+Outdoors 2025,D. flexuosa,R freezing,D22,15.9012,20.727539
+Outdoors 2025,D. flexuosa,R freezing,D23,53.5775523,43.5714435
+Outdoors 2025,D. flexuosa,R freezing,D24,51.9681218,55.9432046
+Outdoors 2025,D. flexuosa,Control,D28,11.410231,30.8957868
+Outdoors 2025,D. flexuosa,Control,D29,5.689442,49.7784275
+Outdoors 2025,D. flexuosa,Control,D30,0,0
+Outdoors 2025,E. vaginatum,R+S freezing,E25,61.015186,0
+Outdoors 2025,E. vaginatum,R+S freezing,E26,82.628418,0
+Outdoors 2025,E. vaginatum,R+S freezing,E27,130.37712,0
+Outdoors 2025,E. vaginatum,R freezing,E22,58.910306,54.8272361
+Outdoors 2025,E. vaginatum,R freezing,E23,153.298846,65.8028493
+Outdoors 2025,E. vaginatum,R freezing,E24,131.5420585,0
+Outdoors 2025,E. vaginatum,Control,E28,103.495624,72.495457
+Outdoors 2025,E. vaginatum,Control,E29,27.635404,54.8500863
+Outdoors 2025,E. vaginatum,Control,E30,18.810255,0

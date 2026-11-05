@@ -1,0 +1,147 @@
+---
+title: "outdoors_root_growth_statistics"
+author: "Corine Faehn"
+date: "2026-06-13"
+output: html_document
+---
+
+# Load packages
+
+```{r setup, message=FALSE}
+library(tidyverse)
+library(lme4)
+library(lmerTest)
+library(emmeans)
+library(car)
+library(ggplot2)
+library(ggpubr)
+
+dir.create("Outdoors root growth results", showWarnings = FALSE)
+```
+
+# Import data
+
+```{r}
+df <- read.csv("outdoors_root_growth_data.csv")
+```
+
+# Prepare variables
+
+```{r}
+df <- df %>%
+  mutate(
+    Experiment = factor(Experiment),
+    Species = factor(Species),
+    Treatment = factor(Treatment)
+  )
+```
+
+# Anova model
+
+```{r}
+options(contrasts = c("contr.sum", "contr.poly"))
+
+model <- lm(New.growth.sum ~ Treatment * Species + Experiment,
+   data = df)
+
+anova_results <- Anova(model, type = 3)
+anova_results 
+```
+
+```{r}
+write.csv(
+    anova_results,
+    "Outdoors root growth results/ANOVA_table.csv")
+```
+
+# Diagnostics
+
+```{r}
+par(mfrow = c(2,2))
+plot(model)
+```
+
+# Estimated marginal means
+
+```{r}
+emm <- emmeans(model, pairwise ~ Treatment | Species)
+
+pairs_df <- as.data.frame(emm$contrasts)
+pairs_df
+
+write.csv(pairs_df,
+          "Outdoors root growth results/Treatment_Pairwise_Comparisons.csv",
+          row.names = FALSE)
+```
+<!-- # Plot data -->
+
+<!-- ```{r} -->
+<!-- df$Treatment <- factor( -->
+<!--   df$Treatment, -->
+<!--   levels = c("R+S freezing",  "R freezing", "Control") -->
+<!-- ) -->
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- sig_df <- data.frame( -->
+<!--   Species = "E. vaginatum", -->
+<!--   group1 = "R+S freezing", -->
+<!--   group2 = "R freezing", -->
+<!--   y.position = 110, -->
+<!--   label = "*** p = 0.0001" -->
+<!-- ) -->
+
+<!-- sig_df2 <- data.frame( -->
+<!--   Species = "E. vaginatum", -->
+<!--   group1 = "R+S freezing", -->
+<!--   group2 = "Control", -->
+<!--   y.position = 120, -->
+<!--   label = "* p = 0.01" -->
+<!-- ) -->
+
+<!-- species_labels <- c( -->
+<!--   "D. flexuosa" = "italic('D. flexuosa')", -->
+<!--   "E. vaginatum" = "italic('E. vaginatum')" -->
+<!-- ) -->
+
+<!-- p <- ggplot(df, -->
+<!--        aes(Treatment, -->
+<!--            New.growth.sum)) + -->
+<!--     geom_boxplot(outlier.shape = NA) + -->
+<!--     geom_jitter(width = 0.12, size = 2, alpha = 0.8) + -->
+<!--     facet_wrap(~Species, -->
+<!--       labeller =  as_labeller(species_labels, label_parsed)) + -->
+<!--     labs( -->
+<!--     x = NULL, -->
+<!--     y = "New root growth (cm)" -->
+<!--   ) + -->
+<!--   theme_classic(base_size = 12) -->
+
+<!-- p + -->
+<!--    stat_pvalue_manual( -->
+<!--      sig_df, -->
+<!--      label = "label" -->
+<!--    ) + -->
+<!--    stat_pvalue_manual( -->
+<!--      sig_df2, -->
+<!--      label = "label" -->
+<!--    ) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- ggsave( -->
+<!--   filename = "Outdoors root growth results/Outdoors_root_growth_boxplot.png", -->
+<!--   plot = p + -->
+<!--   stat_pvalue_manual( -->
+<!--     sig_df, -->
+<!--     label = "label" -->
+<!--   ) + -->
+<!--   stat_pvalue_manual( -->
+<!--     sig_df2, -->
+<!--     label = "label" -->
+<!--   ), -->
+<!--   width = 6, -->
+<!--   height = 4, -->
+<!--   dpi = 300 -->
+<!-- ) -->
+<!-- ``` -->
